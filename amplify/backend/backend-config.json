@@ -1,34 +1,38 @@
 {
-  "auth": {
-    "flutter017c844632": {
-      "service": "Cognito",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [],
-      "customAuth": false
-    }
-  },
-  "storage": {
-    "s3Bucket": {
-      "service": "S3",
-      "providerPlugin": "awscloudformation"
-    }
-  },
-  "api": {
-    "apiHome": {
-      "service": "AppSync",
-      "providerPlugin": "awscloudformation",
-      "output": {
-        "authConfig": {
-          "defaultAuthentication": {
-            "authenticationType": "API_KEY",
-            "apiKeyConfig": {
-              "apiKeyExpirationDays": 365,
-              "description": "homeAuth"
-            }
-          },
-          "additionalAuthenticationProviders": []
-        }
-      }
-    }
-  }
+	"auth": {
+		"flutter017c844632": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"customAuth": false
+		}
+	},
+	"storage": {
+		"s3Bucket": {
+			"service": "S3",
+			"providerPlugin": "awscloudformation"
+		},
+		"Demodb": {
+			"service": "DynamoDB",
+			"providerPlugin": "awscloudformation"
+		}
+	},
+	"api": {
+		"apiHome": {
+			"service": "AppSync",
+			"providerPlugin": "awscloudformation",
+			"output": {
+				"authConfig": {
+					"defaultAuthentication": {
+						"authenticationType": "API_KEY",
+						"apiKeyConfig": {
+							"apiKeyExpirationDays": 365,
+							"description": "homeAuth"
+						}
+					},
+					"additionalAuthenticationProviders": []
+				}
+			}
+		}
+	}
 }

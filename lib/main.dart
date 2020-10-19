@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 import 'package:amplify_core/amplify_core.dart';
 import 'package:flutter_aws/src/models/todo.dart';
-import 'package:flutter_aws/src/resources/Provider.dart';
+import 'package:flutter_aws/src/resources/provider.dart';
 import 'amplifyconfiguration.dart';
 import 'package:amplify_storage_s3/amplify_storage_s3.dart';
 import 'dart:io';
@@ -865,6 +865,12 @@ class _MyAppState extends State<MyApp> {
 }
 
 class Graphql extends StatelessWidget {
+  final HttpLink httpLink = HttpLink(
+      uri:
+      'https://jaxi54mgxvgsndu2b7m3fsgg6u.appsync-api.us-east-1.amazonaws.com/graphql',
+      headers: {'x-api-key': 'da2-e4q2vp2ajbbkpfz5b5iegujy3u'}
+  );
+
   @override
   Widget build(BuildContext context) {
     ValueNotifier<GraphQLClient> client = ValueNotifier(
@@ -889,6 +895,13 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final _formKey = GlobalKey<FormState>();
+
+  final HttpLink httpLink = HttpLink(
+      uri:
+      'https://jaxi54mgxvgsndu2b7m3fsgg6u.appsync-api.us-east-1.amazonaws.com/graphql',
+      headers: {'x-api-key': 'da2-e4q2vp2ajbbkpfz5b5iegujy3u'}
+  );
+
 
   TextEditingController idController = TextEditingController();
   TextEditingController nameController = TextEditingController();
